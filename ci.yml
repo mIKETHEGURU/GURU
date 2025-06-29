@@ -1,0 +1,13 @@
+name: GURU Basic CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check files
+        run: ls -la && echo "CI workflow triggered ✅"
