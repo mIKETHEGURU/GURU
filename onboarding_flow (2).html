@@ -1,0 +1,72 @@
+<!-- 🚀 Onboarding Flow for AI Trading App (With Tooltips, Interactions, and Auto-Deposit Mockup) -->
+
+<!-- Step 1: Welcome Screen -->
+<div id="step-1" class="p-4 text-center bg-blue-900 text-white rounded-2xl shadow mb-4">
+  <h1 class="text-2xl font-bold mb-2">Welcome to Sentinel AI Trading</h1>
+  <p class="text-sm">Smarter, safer investing powered by AI.</p>
+  <button class="mt-4 bg-white text-blue-900 px-4 py-2 rounded shadow" onclick="goToStep(2)">Get Started</button>
+</div>
+
+<!-- Step 2: Risk Profile Selection -->
+<div id="step-2" class="p-4 bg-white rounded-2xl shadow mb-4 hidden">
+  <h2 class="text-lg font-semibold mb-2">Set Your Risk Profile <span title="Choose how aggressive your trades should be." class="text-blue-500 cursor-help">❔</span></h2>
+  <select class="w-full p-2 rounded border">
+    <option>Conservative – Safe and Steady</option>
+    <option>Balanced – Growth and Stability</option>
+    <option>Aggressive – Maximize Returns</option>
+  </select>
+  <p class="text-xs mt-2 text-gray-600">You can change this later in settings.</p>
+  <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded shadow" onclick="goToStep(3)">Next</button>
+</div>
+
+<!-- Step 3: Connect to Paper Trading -->
+<div id="step-3" class="p-4 bg-white rounded-2xl shadow mb-4 hidden">
+  <h2 class="text-lg font-semibold mb-2">Try with a Virtual Account <span title="Paper trading lets you test strategies with no real money." class="text-blue-500 cursor-help">❔</span></h2>
+  <p class="text-sm mb-2">Start risk-free with $10,000 virtual funds.</p>
+  <button class="bg-blue-600 text-white px-4 py-2 rounded shadow" onclick="goToStep(4)">Start Paper Trading</button>
+</div>
+
+<!-- Step 4: Choose Your Bot -->
+<div id="step-4" class="p-4 bg-white rounded-2xl shadow mb-4 hidden">
+  <h2 class="text-lg font-semibold mb-2">Select Your First AI Bot</h2>
+  <ul class="text-sm space-y-2">
+    <li><strong>TrendBot:</strong> Follows market momentum with low drawdowns.</li>
+    <li><strong>ReboundBot:</strong> Buys dips, sells quick rebounds.</li>
+    <li><strong>HedgeBot:</strong> Defensive strategy with built-in protection.</li>
+  </ul>
+  <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded shadow" onclick="goToStep(5)">Activate Bot</button>
+</div>
+
+<!-- Step 5: Auto-Deposit Setup -->
+<div id="step-5" class="p-4 bg-white rounded-2xl shadow mb-4 hidden">
+  <h2 class="text-lg font-semibold mb-2">Set Up Auto-Deposit</h2>
+  <p class="text-sm">Securely connect your bank to automate your contributions.</p>
+  <label class="block text-sm mt-2">Recurring Amount</label>
+  <input type="number" placeholder="$20 minimum" class="w-full p-2 border rounded mb-2">
+  <label class="block text-sm">Frequency</label>
+  <select class="w-full p-2 rounded border mb-4">
+    <option>Weekly</option>
+    <option>Bi-weekly</option>
+    <option>Monthly</option>
+  </select>
+  <button class="bg-blue-600 text-white px-4 py-2 rounded shadow" onclick="goToStep(6)">Link Bank</button>
+</div>
+
+<!-- Step 6: Confirmation and Dashboard Access -->
+<div id="step-6" class="p-4 bg-white rounded-2xl shadow mb-4 text-center hidden">
+  <h2 class="text-xl font-bold mb-2">You're Ready to Trade</h2>
+  <p class="text-sm">Auto-deposit is active. Your bot will invest according to your settings.</p>
+  <button class="mt-4 bg-blue-900 text-white px-4 py-2 rounded shadow">Go to Dashboard</button>
+</div>
+
+<script>
+function goToStep(step) {
+  const steps = [1, 2, 3, 4, 5, 6];
+  steps.forEach(s => {
+    const el = document.getElementById(`step-${s}`);
+    if (el) el.classList.add('hidden');
+  });
+  const target = document.getElementById(`step-${step}`);
+  if (target) target.classList.remove('hidden');
+}
+</script>
