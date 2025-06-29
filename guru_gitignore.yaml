@@ -1,0 +1,33 @@
+# .gitignore for GURU App
+
+# Node modules
+node_modules/
+
+# Build output
+client/build/
+server/dist/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Test/coverage
+coverage/
+
+# Optional: Ignore large assets
+*.mp4
+*.mov
+*.zip
+*.tar.gz
+*.exe
