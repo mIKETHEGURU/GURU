@@ -1,0 +1,49 @@
+name: GURU CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
+      PLAID_CLIENT_ID: ${{ secrets.PLAID_CLIENT_ID }}
+      PLAID_SECRET: ${{ secrets.PLAID_SECRET }}
+      STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          cd client
+          npm install
+          cd ../server
+          npm install
+
+      - name: Run Lint & Tests
+        run: echo "Add lint or test scripts here"
+
+      - name: Build frontend
+        run: |
+          cd client
+          npm run build
+
+      - name: Deploy to Netlify or other (placeholder)
+        run: echo "Add deployment command to Netlify, Vercel, or other"
+
+      - name: Notify success
+        run: echo "Build and deploy successful!"
